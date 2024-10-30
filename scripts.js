@@ -1,14 +1,26 @@
 //Genera una nueva excusa al cargar la página
 window.onload = function() {
     addNewExcuse();
+
+    const entendido = localStorage.getItem("modalAcknowledged"); // Guardamos si alguien ha dado entendido al dialogo, para no mostrarlo otra vez
+    if(!entendido) modal.showModal()
+    
 };
 
+// Operaciones de modal
+const closeButton = document.querySelector("[data-close-modal-button]");
+const modal = document.querySelector("[data-modal]");
+
+closeButton.addEventListener("click", () => {
+    modal.close();
+    localStorage.setItem("modalAcknowledged", "true")
+});
 
 
 let who = ['El gato', 'Mi abuela', 'El repartidor', 'Mi pájaro', 'Mi amo', 'El robot', 'El programador genio llamado Adrian'];
 let action = ['se comió', 'destruyó', 'obliteró', 'se meó encima de', 'hizo volar a', 'maldijo'];
 let what = ['mis otros gatos', 'mi móvil', 'mi coche', 'mi mapa de conquista de Francia', 'mi calculadora', 'mi tio-bisabuelo tercero'];
-let when = ['mientras estaba intentando conquistar Francia', 'mientras estaba durmiendo', 'mientras estaba ejercitando', 'durante mi cena', 'mientras rezaba', 'mientras iba en nave espacial'];
+let when = ['mientras estaba intentando conquistar Francia', 'mientras estaba durmiendo', 'mientras estaba ejercitando', 'durante mi cena', 'mientras rezaba', 'mientras iba en nave espacial' ];
 
 function generateRandom(arr) {
     return arr[~~(Math.random()*arr.length)]; // El ~~ es una forma de escribir Math.floor!, que diver
@@ -141,14 +153,14 @@ function pleaseStop(){
     music.pause();
     music.currentTime = 0;
     // colores
-    document.body.style.background = "white";
-    document.getElementById("excuse").style.color = "rgb(43, 38, 52)";
-    document.getElementById("buttonClickMe").style.color = "white";
-    document.getElementById("buttonClickMe").style.background = "rgb(108, 116, 125)";
-    document.getElementById("buttonClickMe").style.border =  "rgb(108, 117, 125)";
-    document.getElementById("buttonStartParty").style.color = "white";
-    document.getElementById("buttonStartParty").style.background = "rgb(108, 116, 125)";
-    document.getElementById("buttonStartParty").style.border = "rgb(108, 117, 125)";
+    document.body.style.background = "";
+    document.getElementById("excuse").style.color = "";
+    document.getElementById("buttonClickMe").style.color = "";
+    document.getElementById("buttonClickMe").style.background = "";
+    document.getElementById("buttonClickMe").style.border =  "";
+    document.getElementById("buttonStartParty").style.color = "";
+    document.getElementById("buttonStartParty").style.background = "";
+    document.getElementById("buttonStartParty").style.border = "";
     clearInterval(colorInterval);
     // gato meme
     document.getElementById("gatoMeme").classList.remove("rise-from-bottom");

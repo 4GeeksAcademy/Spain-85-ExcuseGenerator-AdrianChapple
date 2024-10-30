@@ -41,16 +41,20 @@ body {
 
 
 /* Animación para cada letra (dentro de un span) que se va imprimiendo */
-/* Tuve que concretar el id, porque si no se quedaba todo en blanco */
-#excuse span {
+/* Tuve que concretar los spans, porque si no se quedaba todo en blanco */
+.excuse span {
     opacity: 0;
     transition: all 0.4s ease;
     background: none;
     border: none;
 }
 
-#excuse span.fade {
+.excuse span.fade {
     opacity: 1;
+}
+
+.excuse {
+    min-height: 2.5em;  /* Damos un espacio determinado a excuse para que no se muevan los botones al generar una frase larga */
 }
 
 
@@ -63,4 +67,15 @@ body {
 .start-party:hover {
     background-image: linear-gradient(to right, red,orange,yellow,green,blue,indigo,violet);
     font-weight: 600;
+}
+
+
+/* Estilos diálogo */
+dialog::backdrop {
+    background-color: lightgray;
+    opacity: 0.7;
+
+}
+dialog {
+    border-radius: 1rem;
 }

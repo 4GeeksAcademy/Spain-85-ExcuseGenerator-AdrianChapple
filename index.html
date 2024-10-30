@@ -13,17 +13,24 @@
 </head>
 
 <body>
-    <!-- Alerta start -->
-    <div class="alert alert-danger alert-dismissible fade show mb-0 fixed-top w-100 g-0" role="alert">
-        <strong> <i class="fa-solid fa-eye-low-vision"></i> Advertencia de Epilepsia!</strong> Este sitio web puede contener luces intermitentes o efectos visuales que podrían desencadenar convulsiones en personas con epilepsia fotosensible. Por favor, proceda con precaución. Si es sensible a estos estímulos, considere salir del sitio.
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
+
+    <!-- Modal start -->
+     <!-- Ayudado por https://www.youtube.com/watch?v=ywtkJkxJsdg -->
+    <dialog data-modal data-open-modal class="bottom-50 w-50">
+        <div class="d-flex flex-column my-auto justify-content-center align-items-center ">
+            <div class="my-2 fs-5">
+                <strong> <i class="fa-solid fa-eye-low-vision"></i> Advertencia de Epilepsia!</strong>
+            </div> 
+            <div>Este sitio web puede contener luces intermitentes o efectos visuales que podrían desencadenar convulsiones en personas con epilepsia fotosensible. Por favor, proceda con precaución. Si es sensible a estos estímulos, considere salir del sitio.</div>
+            <button type="button" class="btn btn-success dialog-button mt-2" data-close-modal-button><i class="fa-solid fa-check me-2"></i> Entendido</button>
+        </div>
+    </dialog>
 
     <!-- Contenido start -->
     <div class="d-flex flex-column my-auto justify-content-center align-items-center min-vh-100 text-center">
         <!-- Excusa generada start -->
         <div class="row">
-            <h1 id="excuse"></h1>
+            <h1 id="excuse" class="excuse"></h1>
         </div>
         <!-- Botones -->
         <div class="row d-flex justify-content-around flex-column ">
@@ -42,6 +49,7 @@
         <!-- Gato meme -->
         <img src="meme gato.gif" alt="gato-meme" class="gato-meme position-absolute img-fluid bottom-0 end-0 mt-5 invisible" id="gatoMeme" width="17%"height="auto">
     </div>
+
 
     <!-- Bootstrap and my script links-->
     <script src="scripts.js"></script>
